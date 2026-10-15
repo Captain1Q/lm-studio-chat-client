@@ -1,9 +1,8 @@
 import requests
 
-
 def send(History,Command):
     History.append({"role": "user", "content": Command})
-    payload= {"model": "YOUR_MODEL", "messages":History}
+    payload= {"model": "YOUR MODEL ID HERE", "messages":History}
     response = requests.post("http://localhost:1234/v1/chat/completions", json=payload, timeout=120)
     response.raise_for_status()
     result= response.json()
@@ -16,10 +15,14 @@ history= []
     
 while True:
         try: 
-            command = input("Enter a command, or stop: ")
+            command = input("Enter a command, or stop, or clear (to clear conversation): ")
 
             if command == "stop":
                 break
+            if command == "clear":
+                 history.clear()
+                 print("Conversation history cleared.")
+                 continue
             
             send(history,command)
 

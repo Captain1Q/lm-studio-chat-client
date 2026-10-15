@@ -23,6 +23,7 @@ features:
 - Simple quick running
 - conversation history during the current session
 - Handles connection failures, timeouts, and HTTP errors
+- A 'clear' command to clear the history withing active running of the script.
 
 limitations:
 - No permanent memory
