@@ -3,7 +3,7 @@ import requests
 
 def send(History,Command):
     History.append({"role": "user", "content": Command})
-    payload= {"model": "gemma4-26b-a4b-qat-uncensored-hauhaucs-balanced-mtp", "messages":History}
+    payload= {"model": "YOUR_MODEL", "messages":History}
     response = requests.post("http://localhost:1234/v1/chat/completions", json=payload, timeout=120)
     response.raise_for_status()
     result= response.json()
